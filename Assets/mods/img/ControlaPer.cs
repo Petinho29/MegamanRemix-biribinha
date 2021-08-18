@@ -15,7 +15,7 @@ public class ControlaPer : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        diferenca = new Vector3(0, 0.15f, 0);
+        diferenca = new Vector3(-0.15f, 0.80f, 0);
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class ControlaPer : MonoBehaviour
         if (horz != 0)
         {
             GetComponent<Animator>().SetBool("CORRENDO", true);
-            transform.Translate(0.75f * Time.deltaTime * horz, 0, 0); // faz personagem andar 
+            transform.Translate(2f * Time.deltaTime * horz, 0, 0); // faz personagem andar 
             if (horz < 0)
                 transform.localScale = new Vector3(-1, 1, 1); // vira a sprite
             else
@@ -40,7 +40,7 @@ public class ControlaPer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(new Vector2(0, 3.5f), ForceMode2D.Impulse); // para valores quebrados colocar "f" do lado
+            rb.AddForce(new Vector2(0, 5f), ForceMode2D.Impulse); // para valores quebrados colocar "f" do lado
             animator.SetTrigger("PULAR");
             animator.SetBool("NOCHAO", true);
         }
