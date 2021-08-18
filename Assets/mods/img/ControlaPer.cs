@@ -9,14 +9,13 @@ public class ControlaPer : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     Vector3 diferenca;
-    float raio;
+    const float RAIO = 0.15f;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         diferenca = new Vector3(0, 0.15f, 0);
-        raio = 0.05f;
     }
 
     // Update is called once per frame
@@ -50,7 +49,7 @@ public class ControlaPer : MonoBehaviour
 
     private void FixedUpdade()
     {
-        Collider2D[] colisoes = Physics2D.OverlapCircleAll(transform.position - diferenca, 0.05f, layermascara);
+        Collider2D[] colisoes = Physics2D.OverlapCircleAll(transform.position - diferenca, 20f, layermascara);
         if (colisoes.Length == 0)
             animator.SetBool("NOCHAO", false);
         else
@@ -59,7 +58,7 @@ public class ControlaPer : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position - new Vector3(0, 0.15f, 0), 0.05f);
+        Gizmos.DrawWireSphere(transform.position - diferenca, RAIO);
     }
 }
 
