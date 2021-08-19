@@ -40,7 +40,7 @@ public class ControlaPer : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(new Vector2(0, 5f), ForceMode2D.Impulse); // para valores quebrados colocar "f" do lado
+            rb.AddForce(new Vector2(0, 7.5f), ForceMode2D.Impulse); // para valores quebrados colocar "f" do lado
             animator.SetTrigger("PULAR");
             animator.SetBool("NOCHAO", true);
         }
