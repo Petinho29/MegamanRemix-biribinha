@@ -10,6 +10,7 @@ public class ControlaPer : MonoBehaviour
     private Animator animator;
     Vector3 diferenca;
     const float RAIO = 0.15f;
+   // public ParticleSystem Fire;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +44,15 @@ public class ControlaPer : MonoBehaviour
             rb.AddForce(new Vector2(0, 7.5f), ForceMode2D.Impulse); // para valores quebrados colocar "f" do lado
             animator.SetTrigger("PULAR");
             animator.SetBool("NOCHAO", true);
+        }
+
+       // animator.SetBool("FIRE", false);
+
+        // if (Input.GetButtonDown("Fire1"))
+        if (Input.GetMouseButtonDown(0))
+        {
+          //  Fire.Emit(1);
+            animator.SetTrigger("FIRE");
         }
     }
 
